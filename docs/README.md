@@ -200,7 +200,19 @@ every component has access to a config file and credentials which allow access t
 
 ![vSphere In-Tree Cloud Provider Architecture](/docs/images/vsphere-in-tree-architecture.png "vSphere In-Tree Cloud Provider Architecture")
 
+**Note**: this diagram only illustrates which components in your cluster should be connecting to vCenter.
+
 ### Kubernetes on vSphere using the out-of-tree Cloud Provider (recommended)
+
+The out-of-tree vSphere cloud provider integration also connects to vCenter and maps information about your infrastructure (VMs,
+disks, etc) back to the Kubernetes API. For the out-of-tree case however, the only component that will ever talk to vCenter is
+the cloud-controller-manager. Therefore, only the cloud-controller-manager is required to have a valid config file and credentials
+in order to connnect to vCenter. Similar to the in-tree case, how to configure these will be covered in [Installing and Operating the vSphere Cloud Provider](#installing-operating-the-vsphere-cloud-provider). For now, assume that the cloud-controller-manager has access
+to a confile file and credentials which allow access to vCenter.
+
+![vSphere Out-of-Tree Cloud Provider Architecture](/docs/images/vsphere-out-of-tree-architecture.png "vSphere Out-of-Tree Cloud Provider Architecture")
+
+**Note**: this diagram only illustrates which components in your cluster should be connecting to vCenter.
 
 ## vSphere Integrations
 
