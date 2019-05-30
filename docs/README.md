@@ -43,7 +43,7 @@ This is the official documentation for the Kubernetes vSphere Cloud Provider.
 This is the official documentation for the Kubernetes vSphere cloud provider integration. This document covers key concepts,
 features, known issues, installation requirements and steps for Kubernetes clusters running on vSphere. Before reading this
 document, it's worth noting that a Kubernetes cluster can run on vSphere without the cloud provider integration enabled, however,
-your Kubernetes clusters will lack features that require integration with the underlying infrastructure/cloud provider.
+your Kubernetes clusters will not have features that require integration with the underlying infrastructure/cloud provider.
 
 ## Kubernetes Concepts
 
@@ -81,7 +81,7 @@ cloud-specific control loops that were previously run in core components like th
 ### In-Tree vs Out-of-Tree
 
 As of writing this, in-tree cloud providers are only supported for historical reasons. In the early development stages of Kubernetes, implementing
-cloud providers natively (in-tree) was the most viable solution. Today, with many infrastrcuture providers supporting Kubernetes, new cloud providers
+cloud providers natively (in-tree) was the most viable solution. Today, with many infrastructure providers supporting Kubernetes, new cloud providers
 are requried to be out-of-tree in order to grow the project sustainably. For the existing in-tree cloud providers, there's an effort to extract/migrate
 clusters to use out-of-tree cloud providers, see [this KEP](https://github.com/kubernetes/enhancements/blob/master/keps/sig-cloud-provider/20190125-removing-in-tree-providers.md) for more detais.
 
@@ -91,8 +91,8 @@ Regardless, this document will cover both the in-tree and out-of-tree vSphere in
 
 ## Components and Tools
 
-The following section introduces key components and tools that are part of any Kubernetes cluster running on vSphere. If you are familiar with
-Kubernetes or vSphere, you can skip this section.
+Before diving into Kubernetes on vSphere, it's important to cover some key components and tools.The following section introduces key components
+and tools that are part of any Kubernetes cluster running on vSphere. If you are familiar with Kubernetes and vSphere, you can skip this section.
 
 ### VM
 
@@ -113,6 +113,8 @@ Kubernetes or vSphere, you can skip this section.
 ### govmomi
 
 <to-do andrew>
+
+govmomi is a Go library for interacting with VMware vSphere APIs - ESXi and/or vCenter
 
 ### Kubernetes
 
