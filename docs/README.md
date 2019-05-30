@@ -184,3 +184,19 @@ Cloud providers are also free to run custom controllers as part of the cloud-con
 Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
 
 (source: kubernetes.io)
+
+## Architecture
+
+### Kubernetes on vSphere using the in-tree Cloud Provider
+
+### Kubernetes on vSphere using the out-of-tree Cloud Provider (recommended)
+
+## vSphere Integrations
+
+### Kubernetes Nodes
+
+### Kubernetes Zones/Regions Topology
+
+### Kubenetes LoadBalancers
+
+### Kubernetes Routes
