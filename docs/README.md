@@ -31,7 +31,9 @@ This is the official documentation for the Kubernetes vSphere Cloud Provider.
   - [Kubernetes Zones/Regions Topology](#kubernetes-zones-regions-topology)
   - [Kubernetes LoadBalancers](#kubernetes-loadbalancers)
   - [Kubnernetes Routes](#kubernetes-routes)
+  - [Kubnernetes Persistent Volumes](#kubernetes-persistent-volumes)
 - [Example Configurations and Manifests](#example-manifests)
+- [Installing and Operating the vSphere Cloud Provider](#installing-and-operating-the-vsphere-cloud-provider)
 - [Tutorials](#tutorials)
 - [Addons](#addons)
   - [Storage](#storage)
@@ -189,9 +191,21 @@ Consistent and highly-available key value store used as Kubernetes’ backing st
 
 ### Kubernetes on vSphere using the in-tree Cloud Provider
 
+The in-tree vSphere cloud provider integration is capable of connecting to vCenter in order to map information
+about your infrastructure (VMs, disks, etc) back to the Kubernetes API. For the in-tree case, the kubelet,
+kube-apiserver, and kube-controller-manager are natively aware of how to connect to vCenter if it is provided with a valid config
+file and credentials. What the config file should look like and how the credentials are shared will be covered in
+[Installing and Operating the vSphere Cloud Provider](#installing-operating-the-vsphere-cloud-provider). For now, assume that
+every component has access to a config file and credentials which allow access to vCenter.
+
+![vSphere In-Tree Cloud Provider Architecture](/docs/images/vsphere-in-tree-architecture.png "vSphere In-Tree Cloud Provider Architecture")
+
 ### Kubernetes on vSphere using the out-of-tree Cloud Provider (recommended)
 
 ## vSphere Integrations
+
+Once the vSphere Cloud Provider is fully functional on your cluster, your cluster will have access to new integration points
+with vSphere. Below are the key integrations that are enabled by the vSphere cloud provider.
 
 ### Kubernetes Nodes
 
@@ -200,3 +214,7 @@ Consistent and highly-available key value store used as Kubernetes’ backing st
 ### Kubenetes LoadBalancers
 
 ### Kubernetes Routes
+
+### Kubernetes Persistent Volumes
+
+## Installing and Operating the vSphere Cloud Provider
