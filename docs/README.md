@@ -39,8 +39,7 @@ This is the official documentation for the Kubernetes vSphere Cloud Provider.
   - [Storage](#storage)
   - [Networking](#networking)
 
-
-# Introduction
+## Introduction
 
 This is the official documentation for the Kubernetes vSphere cloud provider integration. This document covers key concepts,
 features, known issues, installation requirements and steps for Kubernetes clusters running on vSphere. Before reading this
@@ -64,11 +63,10 @@ As of writing this, there are two modes of cloud provider integrations: in-tree 
 ### In-Tree Cloud Providers
 
 In-tree cloud providers refers to cloud provider integrations that are directly compiled and built into the core Kubernetes components.
-This also means that the integration is also developed within the same git tree as Kubernetes core. As a result, updates to the cloud
+This also means that the integration is also developed within the same source code repository as Kubernetes core. As a result, updates to the cloud
 provider integration must also be released at the same cadeance as the main Kubernetes release.
 
 ![In-Tree Cloud Provider Architecture](/docs/images/in-tree-arch.png "Kubernetes In-Tree Cloud Provider Architecture - from k8s.io/website")
-
 
 ### Out-of-Tree Cloud Providers
 
@@ -76,9 +74,7 @@ Out-of-tree cloud provider refers to integrations that can be developed, built a
 adding a new component to the cluster called the cloud-controller-manager. The cloud-controller-manager is responsible for running all the
 cloud-specific control loops that were previously run in core components like the kube-controller-manager and the kubelet.
 
-
 ![Out-of-Tree Cloud Provider Architecture](/docs/images/out-of-tree-arch.png "Kubernetes Out-of-Tree Cloud Provider Architecture - from k8s.io/website")
-
 
 ### In-Tree vs Out-of-Tree
 
@@ -98,19 +94,25 @@ and tools that are part of any Kubernetes cluster running on vSphere. If you are
 
 ### VM
 
-<to-do myles>
+A VM is an abstraction of an operating system from the phsyical machine by creating a "virtual" representation of the physical hardware the OS expects to interact with,
+this includes but is not limited to CPU instruction sets, memory, BIOS, PCI buses, etc. A VM is an entirely self-contained entity and shares no components with the host OS.
+In the case of vSphere the host OS is ESXi.
 
 ### vSphere
 
-<to-do myles>
+vSphere is the product name of the two core components of the VMware Software Defined Datacenter (SDDC) stack, they are vCenter and ESXi. Each is discussed below in detail.
 
 ### ESXi
 
-<to-do myles>
+ESXi is the hypervisor, or "host" OS that is used to run VMs on. ESXi provides strong separation between VMs and itself, providing strong security boundaries between the
+guest and host operating systems. ESXi can be used as a standalone entity, without vCenter but this is extremely uncommon and feature limited as without a higher level manager (vCenter)
+ESXi cannot provide its most valuable features, like High Availability, vMotion, workload balancing and vSAN (a software defined storage stack).
 
 ### vCenter
 
-<to-do myles>
+vCenter can be thought of as the management layer for ESXi hosts. Hosts can be arranged into Datacenters, Clusters or resources pools, vCenter is the centralised monitoring and
+management control plane for ESXi hosts allow centralised management, integration points for other products in the VMware SDDC stack and third party solutions, like backup, DR
+or networking overlay applications, such as NSX. vCenter also provides all of the higher level features of vSphere such as vMotion, vSAN, HA, DRS, Distributed Switches and more.
 
 ### govmomi
 
@@ -230,3 +232,21 @@ with vSphere. Below are the key integrations that are enabled by the vSphere clo
 ### Kubernetes Persistent Volumes
 
 ## Installing and Operating the vSphere Cloud Provider
+
+<to-do Myles>
+
+Heavy content pulled from the [VCP microsite](http://vmware.github.io/vsphere-storage-for-kubernetes/documentation/)
+
+## Tutorials
+
+## Addons
+
+### Storage
+
+<to-do Myles>
+
+<Andrew: Should we break out into CSI and VCP here?>
+
+Heavy content pulled from the [VCP microsite](http://vmware.github.io/vsphere-storage-for-kubernetes/documentation/)
+
+### Networking
