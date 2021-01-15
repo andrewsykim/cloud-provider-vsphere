@@ -56,6 +56,13 @@ func main() {
 	if err != nil {
 		klog.Fatalf("unable to initialize command options: %v", err)
 	}
+
+	// There's a bug in k8s.io/cloud-provider where validation happens prior to
+	// flags being read. This is a temporary work around to that bug since we only
+	// accept --cloud-provider=vsphere anyways. This should be removed once
+	// https://github.com/kubernetes/cloud-provider/issues/44 is fixed.
+	s.KubeCloudShared.CloudProvider.Name = vsphere.ProviderName
+
 	c, err := s.Config([]string{}, app.ControllersDisabledByDefault.List())
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
